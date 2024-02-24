@@ -6,8 +6,11 @@ import {
   StyledNavItemUl,
   StyledNavItemli
 } from "./style";
+import React, {useState}  from "react";
 
 const Header = () => {
+  const [loggedIn, setLoggedIn] = useState(true);
+  
   return (
     <StyledNavBar className="header">
       <StyledLogoContainer className="logo-container">
@@ -22,6 +25,7 @@ const Header = () => {
           <StyledNavItemli>About Us</StyledNavItemli>
           <StyledNavItemli>Contact Us</StyledNavItemli>
           <StyledNavItemli>Cart</StyledNavItemli>
+          <StyledNavItemli onClick={()=>{setLoggedIn((prevState)=>!prevState)}}>{loggedIn? "Login":"LogOut"}</StyledNavItemli>
         </StyledNavItemUl>
       </StyledNavItemContainer>
     </StyledNavBar>

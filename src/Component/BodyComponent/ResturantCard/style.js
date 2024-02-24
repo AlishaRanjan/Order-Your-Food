@@ -6,6 +6,7 @@ background: #cac6b14a;
 width: 200px;
 padding: 5px;
 margin: 10px auto;
+border-radius: 4px;
 
 &: hover{
     border: 1px solid #52491b ;
