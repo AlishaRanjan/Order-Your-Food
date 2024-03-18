@@ -1,3 +1,4 @@
+import React from "react";
 import {
   StyledCardWrapper,
   StyledH3Tag,

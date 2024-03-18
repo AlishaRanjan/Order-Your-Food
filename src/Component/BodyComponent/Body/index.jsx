@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 import ShimmerUI from "../ShimmerUI";
 import OnYourMindCarousel from "../OnYourMindCarousel";
 import TopResturantComponent from "../TopResturantComponent";
+import {Link} from 'react-router-dom';
   
   const Body = () => {
     const [dispResturantList, setDispResturantList] = useState([]);
@@ -28,12 +29,11 @@ import TopResturantComponent from "../TopResturantComponent";
       
       fetchData();
     }, []);
-    console.log("foodlist", dispResturantList);
     
     useEffect(() => {
       if(dispResturantList !== undefined) {
         setFiltereResturant(dispResturantList?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        console.log(dispResturantList);
+        console.log("foodList",dispResturantList);
       }else{
         setFiltereResturant([]);
       }
@@ -47,10 +47,14 @@ import TopResturantComponent from "../TopResturantComponent";
       event.preventDefault();
       setSearchData(event.target.value);
     }
+
     const onSearchBtnClicked = () =>{
       let filteredResturantList = dispResturantList.filter((res)=> res.info.name.toLowerCase().includes(searchData.toLowerCase()));
       setFiltereResturant(filteredResturantList);
       setSearchData("");
+    }
+    const linkData ={
+      "title": "IndividualCard"
     }
 
     return (
@@ -80,8 +84,11 @@ import TopResturantComponent from "../TopResturantComponent";
                   {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (<ShimmerUI key={num} />))}
                 </>
                 :<>
-                  {filterResturant?.map((restaurant, index) =>{
-                    return (<ResturantCard key={index} restaurant={restaurant}/>);
+                  {filterResturant?.map((restaurant) =>{
+                    return (
+                      <Link to={"/resMenu/"+restaurant.info.id} key={restaurant.info.id} state={linkData}>
+                        <ResturantCard key={restaurant.info.id} restaurant={restaurant}/>
+                      </Link>)
                   })}
                 </>
               }

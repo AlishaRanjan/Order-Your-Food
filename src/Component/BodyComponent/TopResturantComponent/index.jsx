@@ -9,6 +9,7 @@ import {
   StyledOYMCLeftDiv,
   StyledOYMCBodyWrapper
 } from "./../OnYourMindCarousel/style";
+import {Link} from 'react-router-dom';
 
 const TopResturantEachComponent =({props})=> {
   return (
@@ -49,6 +50,9 @@ const TopResturantComponent = ({ props }) => {
     const width = box.clientWidth;
     box.scrollLeft = box.scrollLeft + width;
   }
+  const linkData ={
+    "title": "TopRestaurant"
+  }
 
   return (
     <StyledOYMCContainer>
@@ -62,8 +66,12 @@ const TopResturantComponent = ({ props }) => {
         {`<`}
         </StyledOYMCLeftDiv>
       <StyledOYMCBody id='top_rest'>
-          {props?.gridElements?.infoWithStyle?.restaurants.map((info, index)=>{
-            return (<TopResturantEachComponent props={info} key={index}/>);
+          {props?.gridElements?.infoWithStyle?.restaurants.map((info)=>{
+            return (
+              <Link to={"/resMenu/"+ info?.info.id} key={ info?.info.id} state={linkData}>
+                <TopResturantEachComponent props={info} />
+             </Link>
+            );
           })}
       </StyledOYMCBody>
         <StyledOYMCRightDiv onClick={nextButtonClicked}>

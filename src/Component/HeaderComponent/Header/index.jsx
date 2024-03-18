@@ -4,13 +4,14 @@ import {
   StyledLogoImg,
   StyledNavItemContainer,
   StyledNavItemUl,
-  StyledNavItemli
+  StyledNavItemli,
 } from "./style";
-import React, {useState}  from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [loggedIn, setLoggedIn] = useState(true);
-  
+
   return (
     <StyledNavBar className="header">
       <StyledLogoContainer className="logo-container">
@@ -21,11 +22,23 @@ const Header = () => {
       </StyledLogoContainer>
       <StyledNavItemContainer>
         <StyledNavItemUl>
-          <StyledNavItemli>Home</StyledNavItemli>
-          <StyledNavItemli>About Us</StyledNavItemli>
-          <StyledNavItemli>Contact Us</StyledNavItemli>
+          <StyledNavItemli>
+            <Link to="/">Home</Link>
+          </StyledNavItemli>
+          <StyledNavItemli>
+            <Link to="/about">About Us</Link>
+          </StyledNavItemli>
+          <StyledNavItemli>
+            <Link to="/contact">Contact Us</Link>
+          </StyledNavItemli>
           <StyledNavItemli>Cart</StyledNavItemli>
-          <StyledNavItemli onClick={()=>{setLoggedIn((prevState)=>!prevState)}}>{loggedIn? "Login":"LogOut"}</StyledNavItemli>
+          <StyledNavItemli
+            onClick={() => {
+              setLoggedIn((prevState) => !prevState);
+            }}
+          >
+            {loggedIn ? "Login" : "LogOut"}
+          </StyledNavItemli>
         </StyledNavItemUl>
       </StyledNavItemContainer>
     </StyledNavBar>
