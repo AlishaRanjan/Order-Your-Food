@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import {Link} from 'react-router-dom';
 
 export const StyledBodyContainer = styled.section``;
 
@@ -40,4 +41,13 @@ export const StyledFilterDiv = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 10px;
+`;
+
+export const StyledLink = styled(Link)`
+  color: #333; /* Text color */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Make the text bold */
+  &:hover {
+    color: #555; /* Change color on hover */
+  }
 `;

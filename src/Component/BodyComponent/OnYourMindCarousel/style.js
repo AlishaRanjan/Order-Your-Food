@@ -1,4 +1,6 @@
 import { styled } from "styled-components";
+
+
 export const StyledOYMCContainer = styled.section`
 max-width: 1024px;
 width: 100%;
@@ -46,3 +48,17 @@ font-size: 1.5rem;
 export const StyledOYMCBodyWrapper = styled.div`
 display: flex;
 `;
+
+export const StyledTopRestBody = styled.div``;
+
+export const StyledTopRestName = styled.div``;
+
+export const StyledTopRestDetail = styled.div``;
+
+export const StyleTopRestAvgRating = styled.div``;
+
+export const StyleTopRestSla = styled.div``;
+
+export const StyledTopRestAreaName = styled.div``;
+
+export const StyleTopRestCostForTwo = styled.div``;

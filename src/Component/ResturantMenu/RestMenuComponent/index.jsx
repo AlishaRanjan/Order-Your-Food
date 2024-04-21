@@ -13,9 +13,9 @@ const RestMenuComponent = () =>{
     const fetchMenu = async() =>{
         const data = await fetch (`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9351929&lng=77.62448069999999&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`);
         const menuData = await data.json();
-        setResInfo(menuData?.data);
+                setResInfo(menuData?.data);
         let item = menuData?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR;
-        setItemList(item.cards[1].card.card.itemCards || item.cards[4].card.card.itemCards);
+        setItemList(item?.cards[1]?.card?.card?.itemCards || item?.cards[4]?.card?.card?.itemCards);
     }
     if (resInfo === null) {
         return <h1>Loading</h1>;

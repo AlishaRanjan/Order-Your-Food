@@ -6,11 +6,21 @@ import {
   StyledNavItemUl,
   StyledNavItemli,
 } from "./style";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import {checkOnline} from "../../../utils/utilsFunctions";
 
 const Header = () => {
   const [loggedIn, setLoggedIn] = useState(true);
+  const [online, setOnline] = useState(true);
+
+  useEffect(() => {
+      const cleanup = checkOnline(setOnline); 
+      return () => {
+          cleanup();
+      };
+  }, []);
+  console.log(online, "online");
 
   return (
     <StyledNavBar className="header">
@@ -38,6 +48,7 @@ const Header = () => {
             }}
           >
             {loggedIn ? "Login" : "LogOut"}
+            {online?  "✅": "🛑"}
           </StyledNavItemli>
         </StyledNavItemUl>
       </StyledNavItemContainer>

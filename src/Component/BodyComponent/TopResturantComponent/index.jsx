@@ -7,7 +7,14 @@ import {
   StyledOYMCText,
   StyledOYMCRightDiv,
   StyledOYMCLeftDiv,
-  StyledOYMCBodyWrapper
+  StyledOYMCBodyWrapper,
+  StyledTopRestBody,
+  StyledTopRestName,
+  StyledTopRestDetail,
+  StyleTopRestSla,
+  StyleTopRestAvgRating,
+  StyledTopRestAreaName,
+  StyleTopRestCostForTwo
 } from "./../OnYourMindCarousel/style";
 import {Link} from 'react-router-dom';
 
@@ -17,24 +24,23 @@ const TopResturantEachComponent =({props})=> {
         <StyledTopRestHeader imageUrl={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${props?.info?.cloudinaryImageId}`}>
             <StyledTopRestHeaderText>{props?.info?.aggregatedDiscountInfoV3?.header} {props?.info?.aggregatedDiscountInfoV3?.subHeader}</StyledTopRestHeaderText>
         </StyledTopRestHeader>
-        <div>
-            <div>{props?.info?.name}</div>
-            <div>
-                <div>
-                {props?.info?.avgRatingString}
-                </div>
-                <div>
+        <StyledTopRestBody>
+            <StyledTopRestName>{props?.info?.name}</StyledTopRestName>
+            <StyledTopRestDetail>
+                <StyleTopRestAvgRating>
+                {props?.info?.avgRatingString}⭐️
+                </StyleTopRestAvgRating>
+                <StyleTopRestSla>
                     {props?.info?.sla?.slaString}
-                </div>
-            </div>
-            <div>
+                </StyleTopRestSla>
+            </StyledTopRestDetail>
+            <StyledTopRestAreaName>
                 {props?.info?.areaName}
-            </div>
-            <div>
+            </StyledTopRestAreaName>
+            <StyleTopRestCostForTwo>
                 {props?.info?.costForTwo}
-            </div>
-        </div>
-      
+            </StyleTopRestCostForTwo>
+        </StyledTopRestBody>
     </StyleTopResturantCardContainer>
   )
 };
