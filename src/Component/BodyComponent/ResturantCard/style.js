@@ -2,14 +2,14 @@ import {styled} from 'styled-components';
 
 
 export const StyledCardWrapper = styled.section`
-background: #cac6b14a;
-width: 200px;
-padding: 5px;
+background: #fffffe;
+width: 220px;
 margin: 10px auto;
 border-radius: 4px;
+height: 285px;
 
 &: hover{
-    border: 1px solid #52491b ;
+    box-shadow: 10px 10px 5px #c7c4c4;
     cursor: pointer;
 }
 `;
@@ -19,6 +19,8 @@ export const StyledH3Tag = styled.h3``;
 export const StyledResturantImg = styled.img`
 width: 100%;
 height: 150px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
 `;
 
 export const StyledDetailContainer = styled.div`

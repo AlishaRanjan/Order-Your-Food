@@ -11,33 +11,32 @@ import {
   StyledTopRestBody,
   StyledTopRestName,
   StyledTopRestDetail,
-  StyleTopRestSla,
   StyleTopRestAvgRating,
   StyledTopRestAreaName,
   StyleTopRestCostForTwo
 } from "./../OnYourMindCarousel/style";
 import {Link} from 'react-router-dom';
+import ShimmerUI from '../ShimmerUI';
 
 const TopResturantEachComponent =({props})=> {
   return (
-    <StyleTopResturantCardContainer>
-        <StyledTopRestHeader imageUrl={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${props?.info?.cloudinaryImageId}`}>
-            <StyledTopRestHeaderText>{props?.info?.aggregatedDiscountInfoV3?.header} {props?.info?.aggregatedDiscountInfoV3?.subHeader}</StyledTopRestHeaderText>
+    <StyleTopResturantCardContainer className='rounded'>
+        <StyledTopRestHeader className='rounded' imageUrl={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${props?.info?.cloudinaryImageId}`}>
+            <StyledTopRestHeaderText>
+             {props?.info?.aggregatedDiscountInfoV3?.header} {props?.info?.aggregatedDiscountInfoV3?.subHeader}
+            </StyledTopRestHeaderText>
         </StyledTopRestHeader>
         <StyledTopRestBody>
-            <StyledTopRestName>{props?.info?.name}</StyledTopRestName>
-            <StyledTopRestDetail>
+            <StyledTopRestName className='font-bold text-xl'>{props?.info?.name}</StyledTopRestName>
+            <StyledTopRestDetail className='text-neutral-500'> 
                 <StyleTopRestAvgRating>
-                {props?.info?.avgRatingString}⭐️
+                {props?.info?.avgRatingString}⭐️ . {props?.info?.sla?.slaString}
                 </StyleTopRestAvgRating>
-                <StyleTopRestSla>
-                    {props?.info?.sla?.slaString}
-                </StyleTopRestSla>
             </StyledTopRestDetail>
-            <StyledTopRestAreaName>
+            <StyledTopRestAreaName className='text-neutral-500'>
                 {props?.info?.areaName}
             </StyledTopRestAreaName>
-            <StyleTopRestCostForTwo>
+            <StyleTopRestCostForTwo className='text-neutral-500'>
                 {props?.info?.costForTwo}
             </StyleTopRestCostForTwo>
         </StyledTopRestBody>
@@ -61,13 +60,19 @@ const TopResturantComponent = ({ props }) => {
   }
 
   return (
-    <StyledOYMCContainer>
+    <StyledOYMCContainer className='mt-6'>
       <StyledOYMCHeader>
-        <StyledOYMCText>
+        <StyledOYMCText className="text-xl font-serif font-semibold mb-2">
             {props?.header?.title} 🤔
         </StyledOYMCText>
         </StyledOYMCHeader>
-      <StyledOYMCBodyWrapper>
+        {
+          props === undefined ?
+          <div className="flex">
+           {[1, 2, 3, 4].map((num) => ( <ShimmerUI key={num}/>))}
+          </div>
+        :
+      <StyledOYMCBodyWrapper className="gap-x-2">
         <StyledOYMCLeftDiv onClick={prevButtonClicked}>
         {`<`}
         </StyledOYMCLeftDiv>
@@ -83,7 +88,7 @@ const TopResturantComponent = ({ props }) => {
         <StyledOYMCRightDiv onClick={nextButtonClicked}>
            {`>`}
         </StyledOYMCRightDiv>
-        </StyledOYMCBodyWrapper>
+        </StyledOYMCBodyWrapper>}
     </StyledOYMCContainer>
   );
 };

@@ -18,7 +18,7 @@ scroll-behavior: smooth;
 `;
 
 export const StyledOYMCCard = styled.div`
-width: 200px;
+width: 115px;
 height: auto;
 margin: 10px 10px;
 `;

@@ -1,12 +1,17 @@
 import { styled } from "styled-components";
 import {Link} from 'react-router-dom';
 
-export const StyledBodyContainer = styled.section``;
+export const StyledBodyContainer = styled.section`
+max-width: 1024px;
+margin: 0 auto;
+background: #e5e1d9;
+`;
 
 export const StyledSearchInput = styled.input`
 border: 1px double #c8c6c6;
 border-radius: 6px;
 padding: 5px;
+width: 300px;
 `;
 
 export const StyledSearchButton = styled.button`
@@ -37,7 +42,7 @@ background: #ebe4bc;
 `;
 
 export const StyledFilterDiv = styled.div`
-  margin: 10px;
+  margin: 16px 10px;;
   display: flex;
   justify-content: space-between;
   padding: 10px;

@@ -6,6 +6,8 @@ max-width: 1024px;
 width:100%;
 display:flex;
 border: 1px solid black;
+margin: 0 auto;
+background: #e5e1d9;
 `;
 
 export const  StyledLogoContainer = styled.div`

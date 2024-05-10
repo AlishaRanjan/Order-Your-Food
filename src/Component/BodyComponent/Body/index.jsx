@@ -54,23 +54,23 @@ import useFetchData from "../../../utils/useFetchData";
     }
 
     return (
-        <StyledBodyContainer>
+        <StyledBodyContainer className="p-10">
           <OnYourMindCarousel props={dispResturantList?.data?.cards[0]?.card?.card}/>
           <TopResturantComponent props={dispResturantList?.data?.cards[1]?.card?.card} />
             <StyledFilterDiv>
             <StyledSearchContainer>
-              <StyledSearchInput
+              <StyledSearchInput className="text-sm w-300"
               placeholder="Enter name to search"
               type="text"
               value={searchData }
               onChange={onSearchHandler}/>
-              <StyledSearchButton onClick={onSearchBtnClicked}>Search</StyledSearchButton>
+              <StyledSearchButton className="text-sm" onClick={onSearchBtnClicked}>Search</StyledSearchButton>
             </StyledSearchContainer>
-              <StyledFilterBtn onClick={fetchTopRatedResturants}>
+              <StyledFilterBtn className="text-sm" onClick={fetchTopRatedResturants}>
                 Top Rated Resturant
               </StyledFilterBtn>
-            </StyledFilterDiv>
-            <h1>
+            </StyledFilterDiv >
+            <h1 className="text-xl font-serif font-semibold mb-2 mt-10">
               Top Resturant in your Area!🍔🥤
             </h1>
             <StyledresturantContainer>
